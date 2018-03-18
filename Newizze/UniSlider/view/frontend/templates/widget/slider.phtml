@@ -1,0 +1,83 @@
+<?php
+
+/**
+ * Show slider
+ *
+ * PHP version 7.1.8
+ *
+ * @category  Mage2
+ * @package   Newizze_UniSlider
+ * @author    Newizze <info@newizze.com>
+ * @author    Eldar Mavlikhanov <eld.mav@gmail.com>
+ * @copyright 2018 Newizze
+ * @license   https://www.gnu.org/licenses/gpl-3.0.en.html GNU GENERAL PUBLIC LICENSE
+ * @link      https://newizze.com/
+ */
+
+// @var \Newizze\UniSlider\Block\Widget\Slider $block
+$products = $this->getLayout()->createBlock('Newizze\UniSlider\Block\Widget\Products');
+
+// @var \Newizze\UniSlider\Block\Widget\Products $products
+$typeOf = $this->getLayout()->createBlock('Newizze\UniSlider\Block\Widget\TypeOfSliders');
+
+
+?>
+<?php if ($block->getData('visible') == "1") :?>
+
+<div class="newizze__container">
+    <div class="newizze__row">
+        <div class="newizze__slider">
+            <h2 class='posts'><?php echo $block->getData('title'); ?></h2>
+
+            <div class="newizze__elements newizze__slide-wrap">
+                <?php if ($block->getData('show_pager') == '0') :?>
+                    <!--images-->
+                    <?php echo $block->getPathToImages($block->getData('photo'));?>
+                <?php else:?>
+                    <!--products-->
+                    <?php echo $products->getProducts($block->getData('categories'));?>
+                <?php endif;?>
+            </div><!--./newizze__elements-->
+            <div class="newizze__elements_for">
+
+            </div>
+        </div><!--./newizze__slider-->
+    </div><!--./newizze__row-->
+</div><!--./newizze__container-->
+
+    <style>
+        .newizze__slide-wrap{
+            display: flex;
+            flex-direction:row;
+        }
+
+        .newizze__slider_direction{
+            display: flex;
+            flex-direction:row;
+            align-items: center;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 30px;
+        }
+
+        .newizze__slider{
+            text-align: -webkit-center;
+        }
+    </style>
+<script>
+    require.config({
+        deps: [
+            'jquery',
+        ],
+        paths: {
+            'slick': 'http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min'
+        }
+    });
+
+    require(['slick', 'jquery'], function (slick, $) {
+        <?php echo $typeOf->getTypeOfIndex($block->getData('typeofsliders'), $block->getData('slidesToShow'), $block->getData('slidesToScroll'))?>
+
+    });
+</script>
+
+<?php endif;?>

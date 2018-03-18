@@ -1,0 +1,68 @@
+<?php
+/**
+ * About company
+ *
+ * PHP version 7.1.8
+ *
+ * @category  Mage2
+ * @package   Newizze_UniSlider
+ * @author    Newizze <info@newizze.com>
+ * @author    Eldar Mavlikhanov <eld.mav@gmail.com>
+ * @copyright 2018 Newizze
+ * @license   https://www.gnu.org/licenses/gpl-3.0.en.html GNU GENERAL PUBLIC LICENSE
+ * @link      https://newizze.com/
+ */
+?>
+
+<style>
+    .newizze__modal_disable{
+        display: none;
+    }
+    #messages{
+        margin-top: 40px;
+    }
+    .newizze__modal_open{
+        cursor: pointer;
+    }
+</style>
+
+<img src='<?php echo $this->getViewFileUrl('Newizze_UniSlider::images/logo.png')?>' class="newizze__modal_open" >
+<div class="newizze__modal_disable">
+    <h2>NEWIZZE IS THE PREMIUM DEVELOPMENT AND SUPPORT OF COMPLEX E-COMMERCE SOLUTIONS POWERED BY MAGENTO PLATFORM.</h2>
+
+    <h3>SERVICES</h3>
+    <h3>WE OFFER HIGH-QUALITY SERVICES WHICH MADE WITH THE BEST PRACTICES AND TECHNOLOGIES.</h3>
+
+    <p>- DEVELOPMENT</p>
+    <p>- EXTENSIONS</p>
+    <p>- SUPPORT</p>
+    <p>- DESIGN</p>
+    <p>- AUDIT</p>
+
+    <p>WE PROVIDE THE BEST QUALITY, VALUE AND SERVICE TO MEET OUR CUSTOMERS’ NEEDS! BE ONE OF THEM!</p>
+    <p>DO NOT DELAY, BUT RATHER SAY HELLO AND WE START</p>
+    <p>TO WORK ON YOUR PROJECT</p>
+    <a href='mailto:wu@newizze.com'>wu@newizze.com</a><br>
+    <a href='https://newizze.com' target="_blank">newizze.com</a>
+</div>
+
+<div id="messages" class="newizze__modal_open">
+    <div class="message">
+        Show detail information
+    </div>
+</div>
+
+<script type="text/javascript">// <![CDATA[
+    require([
+            'jquery',
+            'Magento_Ui/js/modal/alert'
+        ],
+        function($, alert) {
+            $('.newizze__modal_open').click(function(event){
+                alert({
+                    content: $('.newizze__modal_disable').html()
+                })
+            })
+        }
+    );
+    // ]]></script>

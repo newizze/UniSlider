@@ -1,0 +1,68 @@
+<?xml version="1.0" ?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:hellomagento:Magento_Widget:etc/widget.xsd">
+    <widget class="Newizze\UniSlider\Block\Widget\Slider" id="newizze_widget_slide_slick">
+        <label>Newizze Slider</label>
+        <description>Generated slider for images and products</description>
+        <parameters>
+
+            <parameter name="visible" xsi:type="select" visible="true"
+                       source_model="Newizze\UniSlider\Model\Config\Source\Visible">
+                <label>Visible: </label>
+            </parameter>
+
+            <parameter name="title" xsi:type="text" visible="true" required="true">
+                <label>Title: </label>
+            </parameter>
+
+            <parameter name="typeofsliders" xsi:type="select" visible="true" required="true"
+                       source_model="Newizze\UniSlider\Model\Config\Source\TypesOfSliders">
+                <label>Choose type: </label>
+            </parameter>
+
+            <parameter name="slidesToShow" xsi:type="text" visible="true" required="true">
+                <label>Slides to show: </label>
+            </parameter>
+
+            <parameter name="slidesToScroll" xsi:type="text" visible="true" required="true">
+                <label>Slides to scroll: </label>
+            </parameter>
+
+            <parameter name="show_pager" xsi:type="select" visible="true"
+                       source_model="Newizze\UniSlider\Model\Config\Source\ImgCat">
+                <label translate="true">Display:</label>
+            </parameter>
+
+            <parameter name="photo" xsi:type="block" visible="true" >
+                <label translate="true">Photo</label>
+                <description translate="true">Choose images what you want to upload. Type in field directory name or leave empty if you use root directory</description>
+
+                <block class="Newizze\UniSlider\Block\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string">Choose Image...</item>
+                        </item>
+                    </data>
+                </block>
+                <depends>
+                    <parameter name="show_pager" value="0" />
+                </depends>
+            </parameter>
+
+            <parameter name="categories" xsi:type="select" required="true" visible="true"
+                       source_model="Newizze\UniSlider\Model\Config\Source\GetCategories">
+                <label translate="true">Products</label>
+                <description>Choose category of products what you want to show</description>
+
+                <depends>
+                    <parameter name="show_pager" value="1" />
+                </depends>
+            </parameter>
+
+            <parameter name="slide" xsi:type="block" visible="true" required="false" sort_order="10">
+                <block class="Newizze\UniSlider\Block\Widget\DisplaySlider">
+                </block>
+            </parameter>
+
+        </parameters>
+    </widget>
+</widgets>

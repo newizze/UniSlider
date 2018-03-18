@@ -1,0 +1,21 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="newizze" translate="label" sortOrder="9000">
+            <label>Newizze</label>
+        </tab>
+        <section id="newizze_settings" sortOrder="100" showInDefault="1" showInWebsite="0" showInStore="0">
+            <class>separator-top</class>
+            <label>General</label>
+            <tab>newizze</tab>
+            <resource>Newizze_UniSlider::config_core</resource>
+            <group id="newizze_info" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>NEWIZZE General</label>
+                <field id="newizze_info_header" translate="label" type="textarea" sortOrder="0" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label></label>
+                    <frontend_model>Newizze\UniSlider\Block\System\Config\Form\Html</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

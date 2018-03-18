@@ -1,0 +1,25 @@
+{
+    "name": "newizze/unislider",
+    "description": "",
+    "require": {
+        "php": ">=7.0.2",
+        
+        "magento/magento-composer-installer": "*"
+    },
+    "suggest": {
+
+    },
+    "type": "magento2-module",
+    "version": "0.0.1",
+    "license": [
+
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Newizze\\UniSlider\\": ""
+        }
+    }
+}
